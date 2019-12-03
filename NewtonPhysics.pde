@@ -45,7 +45,7 @@ void draw() {
         gravity.mult(m.mass);
         m.applyForce(gravity);
         
-        PVector wind = new PVector(0.9, 0);
+        PVector wind = new PVector(0.09, 0);
         if (mousePressed) {
             m.applyForce(wind);
         }
@@ -53,14 +53,14 @@ void draw() {
         PVector friction = m.velocity.copy();
         friction.normalize();
         friction.mult(-1);
-        float c = 0.09;
+        float c = 0.0009;
         friction.mult(c);
         m.applyForce(friction);
         
         PVector drag = m.velocity.copy();
         drag.normalize();
         drag.mult(-1);
-        float c_drag = 0.00001;
+        float c_drag = 0.0006;
         float speed = m.velocity.magSq();
         drag.mult(c_drag*speed);
         m.applyForce(drag); 
